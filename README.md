@@ -46,8 +46,9 @@ Freelance/
 ├── index.html              # Main HTML page (SEO, Meta, Structured Data)
 ├── site.webmanifest        # PWA Web App Manifest
 ├── assets/
-│   ├── favicon.svg         # High-resolution vector favicon & touch icon
-│   └── og-image.svg        # 1200x630 social media share preview card
+│   ├── favicon.svg         # 3D isometric cryptographic vault prism favicon
+│   ├── og-image.svg        # 1200x630 vector social media preview card
+│   └── banner.jpg          # High-resolution social preview banner graphic
 ├── css/
 │   ├── style.css           # Design tokens, base styles, layout
 │   ├── components.css      # Component styles (cards, table, modal, etc.)
