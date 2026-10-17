@@ -47,8 +47,9 @@ Freelance/
 ├── site.webmanifest        # PWA Web App Manifest
 ├── assets/
 │   ├── favicon.svg         # 3D isometric cryptographic vault prism favicon
-│   ├── og-image.svg        # 1200x630 vector social media preview card
-│   └── banner.jpg          # High-resolution social preview banner graphic
+│   ├── og-image.svg        # 1200x630 vector social preview card (source)
+│   ├── og-image.jpg        # 1200x630 optimized share preview image (JPEG)
+│   └── og-image.png        # 1200x630 high-resolution preview image (PNG)
 ├── css/
 │   ├── style.css           # Design tokens, base styles, layout
 │   ├── components.css      # Component styles (cards, table, modal, etc.)
