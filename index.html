@@ -2,11 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CryptoVault — Live Crypto Market Dashboard</title>
-  <meta name="description" content="CryptoVault: Track live cryptocurrency prices, market charts, and trading data. Monitor Bitcoin, Ethereum, and 250+ altcoins in real-time.">
-  <meta name="keywords" content="cryptocurrency, bitcoin, ethereum, crypto dashboard, market data, trading, blockchain">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Primary Meta Tags -->
+  <title>CryptoVault — Live Crypto Market Dashboard &amp; Real-Time Prices</title>
+  <meta name="title" content="CryptoVault — Live Crypto Market Dashboard &amp; Real-Time Prices">
+  <meta name="description" content="Track live cryptocurrency prices, market capitalization, 24h trading volume, and 7-day trend charts for 250+ coins with instant search and zero fees.">
+  <meta name="keywords" content="cryptocurrency, crypto tracker, bitcoin price, ethereum, altcoins, market dashboard, crypto analytics, real-time charts, blockchain, coingecko">
+  <meta name="author" content="CryptoVault">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#0a0e17">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CryptoVault">
+  <meta property="og:title" content="CryptoVault — Live Crypto Market Dashboard &amp; Real-Time Prices">
+  <meta property="og:description" content="Track live cryptocurrency prices, interactive charts, and market analytics for 250+ cryptocurrencies in real-time.">
+  <meta property="og:image" content="assets/og-image.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CryptoVault Cryptocurrency Market Dashboard Preview">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@CryptoVault">
+  <meta name="twitter:creator" content="@CryptoVault">
+  <meta name="twitter:title" content="CryptoVault — Live Crypto Market Dashboard">
+  <meta name="twitter:description" content="Real-time cryptocurrency prices, sparkline charts, and market data for 250+ coins.">
+  <meta name="twitter:image" content="assets/og-image.svg">
+  <meta name="twitter:image:alt" content="CryptoVault Dashboard Preview">
+
+  <!-- Mobile & PWA App Meta -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CryptoVault">
+  <meta name="application-name" content="CryptoVault">
+  <meta name="msapplication-TileColor" content="#0a0e17">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.svg">
+  <link rel="mask-icon" href="assets/favicon.svg" color="#6366f1">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +63,45 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+  <!-- Structured Data (JSON-LD Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "CryptoVault",
+        "url": "./",
+        "description": "Real-time cryptocurrency market dashboard and tracking platform",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "./#markets?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "CryptoVault",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Real-time cryptocurrency prices",
+          "7-day sparkline market charts",
+          "Interactive coin detail modals",
+          "Instant search across 250+ coins",
+          "Gainers and losers filtering",
+          "Dark and Light theme toggle"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

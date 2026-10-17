@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="ogBgGlow" cx="25%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#181938" />
+      <stop offset="50%" stop-color="#0a0d17" />
+      <stop offset="100%" stop-color="#04060a" />
+    </radialGradient>
+
+    <!-- Cyber Cyan / Emerald Orb Glow -->
+    <radialGradient id="cyberOrb" cx="85%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.22" />
+      <stop offset="45%" stop-color="#6366f1" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#04060a" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Indigo Orb Glow Bottom Left -->
+    <radialGradient id="indigoOrb" cx="15%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#04060a" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Gradient Text -->
+    <linearGradient id="heroTextGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="35%" stop-color="#818cf8" />
+      <stop offset="70%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Sparkline Neon Green Gradient -->
+    <linearGradient id="neonGreenStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#4ade80" />
+    </linearGradient>
+
+    <linearGradient id="neonGreenFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.32" />
+      <stop offset="70%" stop-color="#22c55e" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Glass Card Gradients -->
+    <linearGradient id="glassCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 41, 59, 0.7)" />
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.85)" />
+    </linearGradient>
+
+    <linearGradient id="glassBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.22)" />
+      <stop offset="40%" stop-color="rgba(99, 102, 241, 0.3)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="heavyDrop" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
+
+    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Dot Pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,0.07)" />
+    </pattern>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="1200" height="630" fill="url(#ogBgGlow)" />
+  <rect width="1200" height="630" fill="url(#cyberOrb)" />
+  <rect width="1200" height="630" fill="url(#indigoOrb)" />
+  <rect width="1200" height="630" fill="url(#dotGrid)" />
+
+  <!-- Subtle Perspective Horizon Lines -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="440" x2="1200" y2="440" />
+    <line x1="0" y1="560" x2="1200" y2="560" />
+  </g>
+
+  <!-- ================= LEFT BRAND & HERO COLUMN ================= -->
+
+  <!-- Brand Logo & Badge Header -->
+  <g transform="translate(80, 72)">
+    <!-- 3D Mini Vault Icon -->
+    <g transform="translate(0, 0)">
+      <rect width="52" height="52" rx="14" fill="#1e1b4b" stroke="url(#glassBorder)" stroke-width="1.5" />
+      <!-- Facets -->
+      <polygon points="26,10 42,18 26,26 10,18" fill="#818cf8" />
+      <polygon points="10,18 26,26 26,42 10,34" fill="#4338ca" />
+      <polygon points="42,18 26,26 26,42 42,34" fill="#0284c7" />
+      <!-- Center Diamond -->
+      <polygon points="26,20 31,23 26,26 21,23" fill="#ffffff" />
+    </g>
+
+    <text x="68" y="36" font-family="'Inter', -apple-system, sans-serif" font-size="28" font-weight="800" fill="#f8fafc" letter-spacing="-0.5">CryptoVault</text>
+
+    <!-- Live Status Pill -->
+    <g transform="translate(250, 8)">
+      <rect width="165" height="34" rx="17" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1" />
+      <circle cx="18" cy="17" r="4.5" fill="#22c55e">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="32" y="22" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#4ade80" letter-spacing="0.5">LIVE 60s SYNC</text>
+    </g>
+  </g>
+
+  <!-- Main Headline -->
+  <g transform="translate(80, 190)">
+    <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="-1.5">
+      Track Crypto Markets
+    </text>
+    <text x="0" y="64" font-family="'Inter', -apple-system, sans-serif" font-size="52" font-weight="900" fill="url(#heroTextGrad)" letter-spacing="-1.5">
+      in Real-Time.
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="128" font-family="'Inter', -apple-system, sans-serif" font-size="18" font-weight="400" fill="#94a3b8" width="500">
+      <tspan x="0" dy="0">Live spot prices, 7-day sparklines, interactive charts,</tspan>
+      <tspan x="0" dy="28">and trading intelligence across 250+ cryptocurrencies.</tspan>
+    </text>
+  </g>
+
+  <!-- Feature Pill Tags Row -->
+  <g transform="translate(80, 440)">
+    <!-- Tag 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="150" height="46" rx="12" fill="rgba(30,41,59,0.7)" stroke="url(#glassBorder)" stroke-width="1" />
+      <text x="75" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0" text-anchor="middle">⚡ 250+ Altcoins</text>
+    </g>
+    <!-- Tag 2 -->
+    <g transform="translate(162, 0)">
+      <rect width="180" height="46" rx="12" fill="rgba(30,41,59,0.7)" stroke="url(#glassBorder)" stroke-width="1" />
+      <text x="90" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0" text-anchor="middle">📊 Interactive Charts</text>
+    </g>
+    <!-- Tag 3 -->
+    <g transform="translate(354, 0)">
+      <rect width="168" height="46" rx="12" fill="rgba(30,41,59,0.7)" stroke="url(#glassBorder)" stroke-width="1" />
+      <text x="84" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0" text-anchor="middle">🔒 Zero API Key</text>
+    </g>
+  </g>
+
+  <!-- URL Footer indicator -->
+  <g transform="translate(80, 552)">
+    <circle cx="6" cy="6" r="4" fill="#6366f1" />
+    <text x="22" y="10" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="500" fill="#64748b">cryptovault · live dashboard terminal</text>
+  </g>
+
+  <!-- ================= RIGHT COLUMN: 3D FLOATING TERMINAL CARDS ================= -->
+
+  <!-- Top Auxiliary Floating Glass Card: ETH -->
+  <g transform="translate(740, 68)" filter="url(#heavyDrop)">
+    <rect width="360" height="96" rx="20" fill="url(#glassCardGrad)" stroke="url(#glassBorder)" stroke-width="1.2" />
+    
+    <!-- Ethereum Icon -->
+    <g transform="translate(24, 24)">
+      <circle cx="24" cy="24" r="24" fill="#627eea" fill-opacity="0.2" stroke="#627eea" stroke-width="1" />
+      <path d="M 24,12 L 15,26 L 24,31 L 33,26 Z" fill="#c084fc" />
+      <path d="M 24,33 L 15,28 L 24,40 L 33,28 Z" fill="#818cf8" />
+    </g>
+
+    <!-- Info -->
+    <text x="84" y="44" font-family="'Inter', sans-serif" font-size="17" font-weight="700" fill="#ffffff">Ethereum</text>
+    <text x="84" y="64" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#94a3b8">ETH · Rank #2</text>
+
+    <!-- Price & Change -->
+    <text x="336" y="44" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#ffffff" text-anchor="end">$3,584.20</text>
+    <rect x="272" y="52" width="64" height="22" rx="6" fill="rgba(34,197,94,0.15)" />
+    <text x="304" y="67" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#22c55e" text-anchor="middle">+4.12%</text>
+  </g>
+
+  <!-- MAIN HERO CARD: Bitcoin (BTC) Live Analytics -->
+  <g transform="translate(670, 184)" filter="url(#heavyDrop)">
+    <!-- Frosted Glass Container -->
+    <rect width="450" height="340" rx="24" fill="url(#glassCardGrad)" stroke="url(#glassBorder)" stroke-width="1.5" />
+    
+    <!-- Card Header -->
+    <g transform="translate(28, 24)">
+      <!-- Bitcoin Gold Emblem -->
+      <circle cx="26" cy="26" r="26" fill="#f7931a" />
+      <text x="26" y="34" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle">₿</text>
+      
+      <!-- Coin Name & Symbol -->
+      <text x="64" y="24" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff">Bitcoin</text>
+      <text x="64" y="44" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#94a3b8">BTC · Market Leader</text>
+
+      <!-- Price & Badge -->
+      <text x="394" y="24" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="800" fill="#ffffff" text-anchor="end">$68,420.50</text>
+      <rect x="318" y="32" width="76" height="24" rx="6" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.3)" stroke-width="0.8" />
+      <text x="356" y="48" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#22c55e" text-anchor="middle">▲ +5.84%</text>
+    </g>
+
+    <!-- Sparkline / 7-Day Chart Area -->
+    <g transform="translate(28, 95)">
+      <!-- Filled Area under Sparkline -->
+      <path d="M 0,110 
+               C 35,95 65,115 100,75 
+               C 135,35 170,85 210,50 
+               C 250,15 285,45 325,20 
+               C 360,-5 385,15 394,5 
+               L 394,150 
+               L 0,150 Z" 
+            fill="url(#neonGreenFill)" />
+
+      <!-- Glowing Neon Trend Stroke -->
+      <path d="M 0,110 
+               C 35,95 65,115 100,75 
+               C 135,35 170,85 210,50 
+               C 250,15 285,45 325,20 
+               C 360,-5 385,15 394,5" 
+            fill="none" 
+            stroke="url(#neonGreenStroke)" 
+            stroke-width="3.5" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+      <!-- Peak Glow Point -->
+      <circle cx="394" cy="5" r="5" fill="#ffffff" stroke="#22c55e" stroke-width="3" filter="url(#cardGlow)" />
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="28" y1="265" x2="422" y2="265" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+    <!-- Card Stats Footer -->
+    <g transform="translate(28, 276)">
+      <!-- 24h High -->
+      <text x="0" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#64748b" text-transform="uppercase">24h Range</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600" fill="#cbd5e1">$65.8K – $69.1K</text>
+
+      <!-- 24h Volume -->
+      <text x="145" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#64748b" text-transform="uppercase">24h Volume</text>
+      <text x="145" y="38" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600" fill="#cbd5e1">$38.4 Billion</text>
+
+      <!-- Market Cap -->
+      <text x="394" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#64748b" text-transform="uppercase" text-anchor="end">Market Cap</text>
+      <text x="394" y="38" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="end">$1.34 Trillion</text>
+    </g>
+  </g>
+
+  <!-- Floating Micro-Badge Bottom Right: Solana SOL -->
+  <g transform="translate(630, 480)" filter="url(#heavyDrop)">
+    <rect width="260" height="72" rx="18" fill="url(#glassCardGrad)" stroke="url(#glassBorder)" stroke-width="1.2" />
+    <!-- Solana Gradient Dot -->
+    <circle cx="36" cy="36" r="18" fill="#14f195" />
+    <text x="36" y="42" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#000000" text-anchor="middle">◎</text>
+    
+    <text x="66" y="32" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Solana</text>
+    <text x="66" y="52" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" fill="#94a3b8">SOL</text>
+    
+    <text x="236" y="32" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff" text-anchor="end">$184.50</text>
+    <text x="236" y="52" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#22c55e" text-anchor="end">+11.4%</text>
+  </g>
+</svg>

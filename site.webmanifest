@@ -1,0 +1,19 @@
+{
+  "name": "CryptoVault — Live Crypto Market Dashboard",
+  "short_name": "CryptoVault",
+  "description": "Track live cryptocurrency prices, market charts, and trading data. Monitor Bitcoin, Ethereum, and 250+ altcoins in real-time.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0e17",
+  "theme_color": "#0a0e17",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "cryptocurrency", "business", "utilities"]
+}

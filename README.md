@@ -21,6 +21,8 @@ A modern, responsive cryptocurrency website with a professional trading dashboar
 | **Scrolling Ticker** | Live price ticker at the top |
 | **Dark / Light Theme** | Toggle with preference saved to localStorage |
 | **Fully Responsive** | Mobile, tablet, and desktop layouts |
+| **SEO & Open Graph** | Complete primary meta, Open Graph (1200x630 card), Twitter Card, and Schema.org JSON-LD structured data |
+| **PWA & Favicon** | Scalable SVG favicon, Apple touch icon, and Web App Manifest (`site.webmanifest`) |
 | **Keyboard Shortcuts** | `/` = Search, `Esc` = Close modal |
 | **Skeleton Loading** | Shimmer placeholders while data loads |
 | **Toast Notifications** | Non-intrusive error messages |
@@ -29,7 +31,7 @@ A modern, responsive cryptocurrency website with a professional trading dashboar
 
 ## Tech Stack
 
-- **HTML5** — semantic markup, `<dialog>` element for the modal
+- **HTML5** — semantic markup, `<dialog>` element for the modal, Schema.org JSON-LD
 - **CSS3** — custom properties, CSS Grid, Flexbox, animations, `backdrop-filter` glassmorphism
 - **JavaScript (ES6+)** — modular IIFE architecture, `async/await`, Intersection Observer
 - **Chart.js 4.x** — interactive charts and sparklines
@@ -41,7 +43,11 @@ A modern, responsive cryptocurrency website with a professional trading dashboar
 
 ```
 Freelance/
-├── index.html              # Main HTML page
+├── index.html              # Main HTML page (SEO, Meta, Structured Data)
+├── site.webmanifest        # PWA Web App Manifest
+├── assets/
+│   ├── favicon.svg         # High-resolution vector favicon & touch icon
+│   └── og-image.svg        # 1200x630 social media share preview card
 ├── css/
 │   ├── style.css           # Design tokens, base styles, layout
 │   ├── components.css      # Component styles (cards, table, modal, etc.)
@@ -52,7 +58,7 @@ Freelance/
 │   ├── ui.js               # UI utilities & formatters
 │   ├── charts.js           # Chart.js rendering
 │   └── app.js              # Main application logic
-└── README.md               # This file
+└── README.md               # Documentation & setup guide
 ```
 
 ---
