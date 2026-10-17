@@ -1,0 +1,223 @@
+/* ==========================================
+   CryptoVault — Responsive Breakpoints
+   ========================================== */
+
+/* ---------- Tablet (≤1024px) ---------- */
+@media (max-width: 1024px) {
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .trending-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* ---------- Mobile landscape / large phones (≤768px) ---------- */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 56px;
+  }
+
+  /* Nav mobile menu */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--clr-bg-card);
+    border-left: 1px solid var(--clr-border);
+    padding: var(--space-16) var(--space-6);
+    transition: right var(--dur-slow) var(--ease-out);
+    z-index: 200;
+    box-shadow: var(--shadow-lg);
+  }
+  .nav__menu.active {
+    right: 0;
+  }
+  .nav__list {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .nav__link {
+    display: block;
+    font-size: var(--fs-md);
+    padding: var(--space-3) var(--space-4);
+  }
+  .nav__close {
+    display: flex;
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    font-size: 1rem;
+  }
+  .nav__toggle {
+    display: flex;
+  }
+
+  /* Mobile overlay */
+  .nav__menu.active::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 36px + var(--space-10));
+    padding-bottom: var(--space-10);
+  }
+  .hero__title {
+    font-size: clamp(var(--fs-2xl), 8vw, var(--fs-3xl));
+  }
+  .hero__description {
+    font-size: var(--fs-base);
+  }
+  .hero__actions {
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-10);
+  }
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* Sections */
+  .section {
+    padding: var(--space-12) 0;
+  }
+  .section__header {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Market controls */
+  .market-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-box {
+    max-width: 100%;
+  }
+  .market-filters {
+    justify-content: center;
+  }
+  .market-sort {
+    align-self: center;
+  }
+
+  /* Dashboard */
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  .dash-card__price {
+    font-size: var(--fs-xl);
+  }
+
+  /* Trending */
+  .trending-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Features */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  /* Modal */
+  .coin-modal {
+    padding: var(--space-3);
+  }
+  .coin-modal__content {
+    padding: var(--space-5);
+    max-height: 90vh;
+  }
+  .coin-modal__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- Small phones (≤480px) ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card__value {
+    font-size: var(--fs-lg);
+  }
+
+  .dash-card__price {
+    font-size: var(--fs-lg);
+  }
+
+  .ticker-bar {
+    display: none;
+  }
+
+  .hero {
+    padding-top: calc(var(--nav-height) + var(--space-8));
+  }
+
+  html {
+    scroll-padding-top: calc(var(--nav-height) + 16px);
+  }
+}
+
+
+/* ---------- Prefers reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

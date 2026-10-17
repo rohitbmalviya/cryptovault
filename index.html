@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoVault — Live Crypto Market Dashboard</title>
+  <meta name="description" content="CryptoVault: Track live cryptocurrency prices, market charts, and trading data. Monitor Bitcoin, Ethereum, and 250+ altcoins in real-time.">
+  <meta name="keywords" content="cryptocurrency, bitcoin, ethereum, crypto dashboard, market data, trading, blockchain">
+  <meta name="theme-color" content="#0a0e17">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.coingecko.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader" class="preloader" aria-label="Loading">
+    <div class="preloader__content">
+      <div class="preloader__logo">
+        <span class="preloader__icon">◈</span>
+        <span class="preloader__text">CryptoVault</span>
+      </div>
+      <div class="preloader__bar">
+        <div class="preloader__progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo" id="nav-logo">
+        <span class="nav__logo-icon">◈</span>
+        <span class="nav__logo-text">CryptoVault</span>
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#hero" class="nav__link active" data-section="hero">Home</a></li>
+          <li><a href="#dashboard" class="nav__link" data-section="dashboard">Dashboard</a></li>
+          <li><a href="#markets" class="nav__link" data-section="markets">Markets</a></li>
+          <li><a href="#trending" class="nav__link" data-section="trending">Trending</a></li>
+          <li><a href="#about" class="nav__link" data-section="about">About</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="nav__actions">
+        <button class="nav__theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-icon">☀</span>
+        </button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== TICKER BAR ===== -->
+  <div class="ticker-bar" id="ticker-bar">
+    <div class="ticker-bar__track" id="ticker-track">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <div class="hero__grid"></div>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__glow hero__glow--3"></div>
+      </div>
+
+      <div class="hero__content container">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Live Market Data
+        </div>
+        <h1 class="hero__title">
+          Track Crypto <br>
+          <span class="hero__title-gradient">Markets in Real-Time</span>
+        </h1>
+        <p class="hero__description">
+          Monitor 250+ cryptocurrencies with live prices, interactive charts, 
+          and comprehensive market analytics — all in one powerful dashboard.
+        </p>
+        <div class="hero__actions">
+          <a href="#dashboard" class="btn btn--primary" id="hero-cta">
+            <span>Open Dashboard</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#markets" class="btn btn--outline" id="hero-markets">
+            <span>View Markets</span>
+          </a>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="hero__stats" id="hero-stats">
+          <div class="stat-card" id="stat-market-cap">
+            <span class="stat-card__label">Global Market Cap</span>
+            <span class="stat-card__value" id="global-market-cap">—</span>
+            <span class="stat-card__change" id="global-market-cap-change">—</span>
+          </div>
+          <div class="stat-card" id="stat-volume">
+            <span class="stat-card__label">24h Volume</span>
+            <span class="stat-card__value" id="global-volume">—</span>
+          </div>
+          <div class="stat-card" id="stat-btc-dom">
+            <span class="stat-card__label">BTC Dominance</span>
+            <span class="stat-card__value" id="btc-dominance">—</span>
+          </div>
+          <div class="stat-card" id="stat-active-coins">
+            <span class="stat-card__label">Active Coins</span>
+            <span class="stat-card__value" id="active-coins">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DASHBOARD ===== -->
+    <section class="section" id="dashboard">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Dashboard</span>
+          <h2 class="section__title">Market Overview</h2>
+          <p class="section__subtitle">Real-time snapshot of the top cryptocurrencies by market capitalization</p>
+        </div>
+
+        <!-- Dashboard Top Cards -->
+        <div class="dashboard-grid" id="dashboard-cards">
+          <!-- Populated by JS: top 4 coins as feature cards -->
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARKETS ===== -->
+    <section class="section section--alt" id="markets">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Markets</span>
+          <h2 class="section__title">Cryptocurrency Prices</h2>
+          <p class="section__subtitle">Browse and search across 250+ cryptocurrencies with live pricing data</p>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="market-controls" id="market-controls">
+          <div class="search-box" id="search-box">
+            <svg class="search-box__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" class="search-box__input" id="search-input" placeholder="Search coins..." autocomplete="off" aria-label="Search cryptocurrencies">
+            <kbd class="search-box__kbd">/</kbd>
+          </div>
+          <div class="market-filters">
+            <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+            <button class="filter-btn" data-filter="gainers" id="filter-gainers">🔺 Gainers</button>
+            <button class="filter-btn" data-filter="losers" id="filter-losers">🔻 Losers</button>
+          </div>
+          <div class="market-sort">
+            <select class="sort-select" id="sort-select" aria-label="Sort by">
+              <option value="market_cap_desc">Market Cap ↓</option>
+              <option value="market_cap_asc">Market Cap ↑</option>
+              <option value="price_desc">Price ↓</option>
+              <option value="price_asc">Price ↑</option>
+              <option value="change_desc">24h Change ↓</option>
+              <option value="change_asc">24h Change ↑</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Market Table -->
+        <div class="table-wrapper" id="table-wrapper">
+          <table class="market-table" id="market-table">
+            <thead>
+              <tr>
+                <th class="th-rank">#</th>
+                <th class="th-name">Coin</th>
+                <th class="th-price">Price</th>
+                <th class="th-change">24h %</th>
+                <th class="th-cap">Market Cap</th>
+                <th class="th-volume">Volume (24h)</th>
+                <th class="th-sparkline">Last 7 Days</th>
+              </tr>
+            </thead>
+            <tbody id="market-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+
+          <!-- Empty / Loading States -->
+          <div class="table-loading" id="table-loading">
+            <div class="spinner"></div>
+            <p>Fetching market data...</p>
+          </div>
+          <div class="table-empty hidden" id="table-empty">
+            <p>No coins match your search.</p>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+          <button class="pagination__btn" id="prev-page" disabled aria-label="Previous page">← Prev</button>
+          <span class="pagination__info" id="page-info">Page 1</span>
+          <button class="pagination__btn" id="next-page" aria-label="Next page">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COIN DETAIL MODAL ===== -->
+    <dialog class="coin-modal" id="coin-modal">
+      <div class="coin-modal__backdrop" id="modal-backdrop"></div>
+      <div class="coin-modal__content" id="modal-content">
+        <button class="coin-modal__close" id="modal-close" aria-label="Close modal">✕</button>
+        <div class="coin-modal__header" id="modal-header">
+          <!-- Populated by JS -->
+        </div>
+        <div class="coin-modal__body" id="modal-body">
+          <div class="coin-modal__chart-wrapper">
+            <canvas id="coin-chart" width="600" height="300"></canvas>
+          </div>
+          <div class="coin-modal__stats" id="modal-stats">
+            <!-- Populated by JS -->
+          </div>
+          <div class="coin-modal__description" id="modal-description">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ===== TRENDING ===== -->
+    <section class="section" id="trending">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">🔥 Trending</span>
+          <h2 class="section__title">Trending Coins</h2>
+          <p class="section__subtitle">The most searched cryptocurrencies in the last 24 hours</p>
+        </div>
+        <div class="trending-grid" id="trending-grid">
+          <!-- Populated by JS -->
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">About</span>
+          <h2 class="section__title">Why CryptoVault?</h2>
+          <p class="section__subtitle">A fast, free, and beautiful way to track crypto markets</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" id="feature-realtime">
+            <div class="feature-card__icon">⚡</div>
+            <h3 class="feature-card__title">Real-Time Data</h3>
+            <p class="feature-card__text">Live prices updated every 60 seconds from CoinGecko's free API with zero API key required.</p>
+          </div>
+          <div class="feature-card" id="feature-charts">
+            <div class="feature-card__icon">📊</div>
+            <h3 class="feature-card__title">Interactive Charts</h3>
+            <p class="feature-card__text">7-day sparklines on every coin and full price history charts in the detail view.</p>
+          </div>
+          <div class="feature-card" id="feature-search">
+            <div class="feature-card__icon">🔍</div>
+            <h3 class="feature-card__title">Instant Search</h3>
+            <p class="feature-card__text">Find any coin instantly with keyboard-first search. Press <kbd>/</kbd> to start.</p>
+          </div>
+          <div class="feature-card" id="feature-responsive">
+            <div class="feature-card__icon">📱</div>
+            <h3 class="feature-card__title">Fully Responsive</h3>
+            <p class="feature-card__text">Works beautifully on desktops, tablets, and phones with adaptive layouts.</p>
+          </div>
+          <div class="feature-card" id="feature-secure">
+            <div class="feature-card__icon">🔒</div>
+            <h3 class="feature-card__title">Secure & Private</h3>
+            <p class="feature-card__text">No API keys stored in the browser. All data fetched via secure HTTPS. No tracking.</p>
+          </div>
+          <div class="feature-card" id="feature-fast">
+            <div class="feature-card__icon">🚀</div>
+            <h3 class="feature-card__title">Lightning Fast</h3>
+            <p class="feature-card__text">Optimized with lazy loading, request caching, and efficient DOM updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">
+            <span class="nav__logo-icon">◈</span>
+            <span>CryptoVault</span>
+          </a>
+          <p class="footer__tagline">Real-time cryptocurrency market data dashboard. Built with modern web technologies.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Quick Links</h4>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#markets">Markets</a>
+          <a href="#trending">Trending</a>
+        </div>
+        <div class="footer__links">
+          <h4>Resources</h4>
+          <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener">CoinGecko API</a>
+          <a href="https://www.chartjs.org/" target="_blank" rel="noopener">Chart.js</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 CryptoVault. Market data by <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
